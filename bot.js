@@ -166,6 +166,9 @@ client.on("message", async msg => {
 // GERECLER \\
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!!js') {  // İstediğiniz Komut
+msg.delete();    
+  const yasak = client.emojis.get('705381196124651571');
+  if (msg.channel.id !== '699018242160590969') return msg.channel.send(`${yasak} **Bu komutun kullanımı, bu kanalda engellenmiştir.**`).then(m => m.delete(5000));
       if(!msg.member.roles.find("name", "JavaScript")){
        msg.member.addRole("698697042918244372") //Rolü bir yerde bahsedin sonra sağ tıklayıp İD'sini alın
     msg.reply('Js Rolünü Başarıyla Aldın.'); //Komutu Yazınca cevap ne yazsın?
@@ -175,7 +178,10 @@ client.on('message', msg => {
 });
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!!py') {  // İstediğiniz Komut
+msg.delete();    
       if(!msg.member.roles.find("name", "Python")){
+  const yasak = client.emojis.get('705381196124651571');
+  if (msg.channel.id !== '699018242160590969') return msg.channel.send(`${yasak} **Bu komutun kullanımı, bu kanalda engellenmiştir.**`).then(m => m.delete(5000));        
        msg.member.addRole("698697127035011092") //Rolü bir yerde bahsedin sonra sağ tıklayıp İD'sini alın
     msg.reply('Py Rolünü Başarıyla Aldın.'); //Komutu Yazınca cevap ne yazsın?
       }else{msg.reply("Python Rolünü Zaten Önceden Almışsın.");}
@@ -183,7 +189,10 @@ client.on('message', msg => {
 });
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!!abone') {  // İstediğiniz Komut
+msg.delete();    
       if(!msg.member.roles.find("name", "Abone")){
+  const yasak = client.emojis.get('705381196124651571');
+  if (msg.channel.id !== '699018242160590969') return msg.channel.send(`${yasak} **Bu komutun kullanımı, bu kanalda engellenmiştir.**`).then(m => m.delete(5000));        
        msg.member.addRole("702989796271718520") //Rolü bir yerde bahsedin sonra sağ tıklayıp İD'sini alın
     msg.reply('Abone Rolünü Başarıyla Aldın.'); //Komutu Yazınca cevap ne yazsın?
       }else{msg.reply("Abone Rolünü Zaten Önceden Almışsın.");}
@@ -191,7 +200,10 @@ client.on('message', msg => {
 });
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!!altyapı') {  // İstediğiniz Komut
+msg.delete();    
       if(!msg.member.roles.find("name", "Altyapı")){
+  const yasak = client.emojis.get('705381196124651571');
+  if (msg.channel.id !== '699018242160590969') return msg.channel.send(`${yasak} **Bu komutun kullanımı, bu kanalda engellenmiştir.**`).then(m => m.delete(5000));        
        msg.member.addRole("701967532319572018") //Rolü bir yerde bahsedin sonra sağ tıklayıp İD'sini alın
     msg.reply('Altyapı Rolünü Başarıyla Aldın.'); //Komutu Yazınca cevap ne yazsın?
       }else{msg.reply("Altyapı Rolünü Zaten Önceden Almışsın.");}
@@ -199,7 +211,10 @@ client.on('message', msg => {
 });
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!!haxball') {  // İstediğiniz Komut
+msg.delete();    
       if(!msg.member.roles.find("name", "HaxBall")){
+  const yasak = client.emojis.get('705381196124651571');
+  if (msg.channel.id !== '699018242160590969') return msg.channel.send(`${yasak} **Bu komutun kullanımı, bu kanalda engellenmiştir.**`).then(m => m.delete(5000));        
        msg.member.addRole("706640377570132030") //Rolü bir yerde bahsedin sonra sağ tıklayıp İD'sini alın
     msg.reply('HaxBall Rolünü Başarıyla Aldın.'); //Komutu Yazınca cevap ne yazsın?
       }else{msg.reply("HaxBall Rolünü Zaten Önceden Almışsın.");}
@@ -207,6 +222,9 @@ client.on('message', msg => {
 });
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!!html') {  // İstediğiniz Komut
+msg.delete();    
+  const yasak = client.emojis.get('705381196124651571');
+  if (msg.channel.id !== '699018242160590969') return msg.channel.send(`${yasak} **Bu komutun kullanımı, bu kanalda engellenmiştir.**`).then(m => m.delete(5000));    
       if(!msg.member.roles.find("name", "Html")){    
        msg.member.addRole("698697155254157323") //Rolü bir yerde bahsedin sonra sağ tıklayıp İD'sini alın
     msg.reply('Html Rolünü Başarıyla Aldın.'); //Komutu Yazınca cevap ne yazsın?
