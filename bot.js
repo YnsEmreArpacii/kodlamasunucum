@@ -248,3 +248,23 @@ client.on('guildMemberAdd',async member => {
   member.addRole("704805499429716099")
 });
 // ŞÜPHELİ HESAP \\
+
+
+// BELIRLI SEVIYEDE ROL ALMA \\
+client.on('message', msg => {
+  if (dba.fetch(`seviye_${msg.author.id + msg.guild.id}`) > 2) {
+    if(!msg.member.roles.find("name", "Premium")){
+  msg.member.addRole('699226811472543746')
+    msg.author.send(`${msg.author} Seviyeniz İstenen Seviyeye Ulaştı, Rolünüzü Kaptınız.`)
+  let prelog = msg.guild.channels.find(`name`, "『ᴘʀᴇᴍɪᴜᴍ』");    
+          const emoji = client.emojis.get('705381124326686741');
+
+      const preverme = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setDescription(`
+      ${emoji} **<@${msg.author.id}> 3. Seviyeye Ulaştığından Dolayı ${msg.guild.roles.get("699226811472543746")} Rolü Verildi.**`)        
+    msg.guild.channels.get(prelog.id).send(preverme)
+
+      }}
+})
+// BELIRLI SEVIYEDE ROL ALMA\\
