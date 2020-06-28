@@ -2,26 +2,25 @@ const Discord = require("discord.js");
 const ms = require("ms");
 
 module.exports.run = async (client, message, args) => {
-
-    if (!message.member.roles.find("name", "Yetkili")) {
+    if (!message.member.roles.find("name", "Yetkili") && !message.member.hasPermission('ADMINISTRATOR')) {
         return message.channel.send(' **Bu Komutu Kullanmak için** \*`Yetkili*\` **Rolüne Sahip Olman Lazım** ')
             .then(m => m.delete(5000));
-    } 
- let efeÜye = message.mentions.members.first() || message.guild.members.get(args[0])
-  if(!efeÜye) return message.channel.send("Lütfen susturulacak kişiyi etiketleyiniz.");
-  if(efeÜye.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Benden yetkili birini susturamam.");
-  if (efeÜye.id === message.author.id) return message.channel.send("Kendinizi susturamazsınız.");
-  let efeRol = message.guild.roles.find(`name`, "Susturuldu");
+    }
+ let lozÜye = message.mentions.members.first() || message.guild.members.get(args[0])
+  if(!lozÜye) return message.channel.send("Lütfen susturulacak kişiyi etiketleyiniz.");
+  if(lozÜye.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Benden yetkili birini susturamam.");
+  if (lozÜye.id === message.author.id) return message.channel.send("Kendinizi susturamazsınız.");
+  let lozRol = message.guild.roles.find(`name`, "Susturuldu");
 
-  if(!efeRol){
+  if(!lozRol){
     try{
-      efeRol = await message.guild.createRole({
+      lozRol = await message.guild.createRole({
         name: "Susturuldu",
         color: "#666666",
         permissions:[]
       })
       message.guild.channels.forEach(async (channel, id) => {
-        await channel.overwritePermissions(efeRol, {
+        await channel.overwritePermissions(lozRol, {
           SEND_MESSAGES: false,
           ADD_REACTIONS: false
         });
@@ -31,26 +30,44 @@ module.exports.run = async (client, message, args) => {
     }
   }
 
-  let efeZaman = args[1];
-  if(!efeZaman) return message.channel.send("Lütfen doğru bir zaman dilimi giriniz. Örneğin: ***!chatmute @kişi 1s/m/h/d sebep**");
+  let lozZaman = args[1];
+  if(!lozZaman) return message.channel.send("Lütfen doğru bir zaman dilimi giriniz. Örneğin: ***!sustur @kişi 1s/m/h/d sebep**");
   let sebep = args[2]
-  if(!sebep) return message.channel.send("Lütfen bir sebep giriniz. Örneğin: ***!chatmute @kişi 1s/m/h/d sebep**");
+  if(!sebep) return message.channel.send("Lütfen bir sebep giriniz. Örneğin: ***!sustur @kişi 1s/m/h/d sebep**");
 
-  await(efeÜye.addRole(efeRol.id));
+  await(lozÜye.addRole(lozRol.id),lozÜye.setMute(true));
+  const kod = "```fix";
+  const kod2 = "```";
    let embed = new Discord.RichEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL)
-                .setDescription(` ${efeZaman} süreliğine  tarafından ${sebep} sebebiyle susturuldu!`)
+              .setTitle("Kullanıcı Chat Cezası Aldı")
+                .setDescription(`
+**Susturulan Üye:** ${lozÜye}
+**Susturan Yetkili:** ${message.author}
+**Susturulma Sebebi:** ${kod}
+${sebep} ${kod2}
+**Verilen Süre:** ${kod}
+${lozZaman} ${kod2}`)
                 .setColor("RANDOM");
-  message.channel.send(embed);
-
+  message.channel.send(`${message.author} Başarılı Bir Şekilde ${lozÜye} Susturuldu.`);
+  let onay = message.guild.channels.find(`name`, "mute-log")
+  message.guild.channels.get(onay.id).send(embed)
+  
   setTimeout(function(){
-    efeÜye.removeRole(efeRol.id);
+    lozÜye.removeRole(lozRol.id);
+    lozÜye.setMute(false)  
     let sembed =  new Discord.RichEmbed()
-              .setAuthor(message.author.tag, message.author.displayAvatarURL)
-                .setDescription(` üyesinin, ${efeZaman} sürelik susturulması, otomatik olarak kaldırıldı.`)
+              .setTitle("Kullanıcı Chat Cezası Kalktı")
+                .setDescription(`
+**Susturulması Kalkan Üye:** ${lozÜye}
+**Susturulmasını Kaldıran Yetkili:** ${message.author}
+**Susturulma Sebebi:** ${kod}
+${sebep} ${kod2}
+**Dolan Süre:** ${kod}
+${lozZaman} ${kod2}`)
                 .setColor("RANDOM");
-    message.channel.send(sembed);
-  }, ms(efeZaman));
+  let onay = message.guild.channels.find(`name`, "mute-log")
+  message.guild.channels.get(onay.id).send(sembed)
+  }, ms(lozZaman));
 
   message.delete();
 
@@ -59,7 +76,7 @@ module.exports.run = async (client, message, args) => {
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ["chat-mute","süreli-sustur"],
+    aliases: ["chat-mute","süreli-sustur","mute"],
     permLevel: 0
 };
 
