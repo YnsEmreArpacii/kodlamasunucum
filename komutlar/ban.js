@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
-      if (!message.member.roles.find("name", "Yetkili")) {
-        return message.channel.send(' **Bu Komutu Kullanmak için** \*`Yetkili*\` **Rolüne Sahip Olman Lazım** ')
+      if (!message.member.roles.find("name", "🔑")) {
+        return message.channel.send(' **Bu Komutu Kullanmak için** \*`🔑*\` **Rolüne Sahip Olman Lazım** ')
             .then(m => m.delete(5000));
     }  
   if (!message.guild) {
