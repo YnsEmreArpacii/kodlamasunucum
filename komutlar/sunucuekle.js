@@ -8,9 +8,9 @@ exports.run = async (client, message, args) => {
   if (ad.length < 1) return message.reply('Sunucu Adını Yazmayı Unuttunuz.');
   if (link.length < 2) return message.reply('Sunucu Adresini Yazmayı Unuttunuz.');
   
-  const emoji1 = client.emojis.get('705381196678430800');
-  const emoji2 = client.emojis.get('705381124326686741');
-  const emoji3 = client.emojis.get('705381196645007390');
+  const emoji1 = client.emojis.get('728135452753920000');
+  const emoji2 = client.emojis.get('728135452753920000');
+  const emoji3 = client.emojis.get('728132131074605146');
     
   const embed = new Discord.RichEmbed()
       .setColor('RANDOM')
