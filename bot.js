@@ -132,7 +132,7 @@ client.on("guildMemberRemove", message => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!!js') {  // İstediğiniz Komut
 msg.delete();    
-  const yasak = client.emojis.get('705381196124651571');
+  const yasak = client.emojis.get('728130320796352573');
   if (msg.channel.id !== '727985775144206367') return msg.channel.send(`${yasak} **Bu komutun kullanımı, bu kanalda engellenmiştir.**`).then(m => m.delete(5000));
       if(!msg.member.roles.find("name", "JavaScript")){
        msg.member.addRole("727985716533133312") //Rolü bir yerde bahsedin sonra sağ tıklayıp İD'sini alın
