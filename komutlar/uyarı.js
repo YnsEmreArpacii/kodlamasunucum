@@ -8,7 +8,7 @@ exports.run = async (client, message, args, params) => {
             .then(m => m.delete(5000));
     }  
 
-  let cezalirol = "704822707807715358"; //Kullanıcı maksimum uyarı sayısını aştığında verilecek rol
+  let cezalirol = "727985722023477310"; //Kullanıcı maksimum uyarı sayısını aştığında verilecek rol
   let maxuyarı = "3"; //Belirtilen uyarı sayısını aştığında cezalı rolü verir.
   let m31rt = a.prefix;
   if (
