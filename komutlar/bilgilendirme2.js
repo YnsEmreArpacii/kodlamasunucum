@@ -1,10 +1,8 @@
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
     message.delete();
-  const emoji1 = client.emojis.get('705381124414898246');
-  const emoji2 = client.emojis.get('705381182510071839');
-  const emoji3 = client.emojis.get('705381124326686741');
-  const emoji4 = client.emojis.get('705381125417336844');
+  const emoji1 = client.emojis.get('728131507767476224');
+  const emoji2 = client.emojis.get('728131673731891210');
   
   const yardım = new Discord.RichEmbed()
 .setColor(`RANDOM`)
