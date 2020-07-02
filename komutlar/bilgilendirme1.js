@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
     message.delete();
-  const emoji1 = client.emojis.get('705381124414898246');
-  const emoji2 = client.emojis.get('705381182510071839');
-  const emoji3 = client.emojis.get('705381124326686741');
-  const emoji4 = client.emojis.get('705381125417336844');
+  const emoji1 = client.emojis.get('728131507767476224');
+  const emoji2 = client.emojis.get('728131673731891210');
+  const emoji3 = client.emojis.get('728131827834814494');
+  const emoji4 = client.emojis.get('728132024858312735');
   
   const yardım = new Discord.RichEmbed()
 .setColor(`RANDOM`)
@@ -17,7 +17,7 @@ ${emoji1} **ROL KOMUTLAR** ${emoji1}
 [${emoji2}] **!!py**  ${emoji3} Python Kanallarını Görürsünüz.
 [${emoji2}] **!!haxball**  ${emoji3} HaxBall Kodlamalarını Görürsünüz.
 
-${emoji4} <#699018242160590969> **Kanalına Yazmalısınız.!**
+${emoji4} <#727985775144206367> **Kanalına Yazmalısınız.!**
 `,true);
  
   message.channel.send(yardım);
