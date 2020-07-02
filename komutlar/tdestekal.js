@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
     let user = message.mentions.members.first()
 
     if (!user) return message.reply('**Kimi Yetkili Yapacağını Seçmedin!**').catch(console.error);
-    user.removeRole('699641053124362402');
+    user.removeRole('727985695062491136');
 
     let kanal = message.guild.channels.find(`name`, "yetkili-log");
     const embed = new Discord.RichEmbed()
