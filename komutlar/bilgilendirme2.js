@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
 .setColor(`RANDOM`)
 .setDescription(`
 ${emoji1} **Sunucu Listesi** ${emoji1}
-[${emoji2}] Ana Sunucu 》 [Tıkla](https://discord.gg/JM2cYf6)
+[${emoji2}] Ana Sunucu 》 [Tıkla](https://discord.gg/xR5w7jF)
 [${emoji2}] Çekirdek Sunucu 》 [Tıkla](https://discord.gg/kGepmr5)
 `,true);
  
